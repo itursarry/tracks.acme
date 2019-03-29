@@ -4,9 +4,12 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var MongoClient = require('mongodb').MongoClient;
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var track = require('./routes/track');
+//var model = require('./model');
+var TrackAcmeApp = require('./model/TrackAcmeApp');
 
 var app = express();
 
@@ -23,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/track', track);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
@@ -30,6 +34,15 @@ app.use(function(req, res, next) {
     err.status = 404;
     next(err);
 });
+
+// DB setup
+MongoClient.connect('mongodb+srv://tracks_acme:tracks_acme@itu-qcwri.mongodb.net/test?retryWrites=true', function(err, db) {
+  if (err) {
+    throw err;
+  }
+  // console.log(db);
+});
+
 
 /// error handlers
 
@@ -54,6 +67,6 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-
-
+var trackAcmeApp = new  TrackAcmeApp();
+app.set('trackAcmeApp', trackAcmeApp);
 module.exports = app;
