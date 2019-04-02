@@ -12,5 +12,11 @@ class Scene extends AbstractObject {
         this.songEndAt = songEndAt;
         this.lastModifyedBy = lastModifyedBy;
     }
+    state(){
+        return "Approved"; // esto deberia retornarlo el objeto State.
+    }
 
 }
+
+
+module.exports = Scene;

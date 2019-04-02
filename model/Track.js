@@ -6,6 +6,7 @@ class Track extends AbstractObject{
     {
         super();
         this.movie = movie;
+        this.scenes= [];
     }
 
 }

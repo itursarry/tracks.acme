@@ -1,5 +1,23 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to 
+  h1 Tracks
+  h2 Add
+  div
+    form(action='/tracks',method='post')
+      label Movie name:
+      input(type='text', name='movie', required)#movie
+      button(type='submit') Submit
+  h2 List
+  div
+    table.table-hover
+      thead
+        th Movie
+        th Actions
+      tbody
+        each track in tracks
+          tr
+            td=track.movie
+            td 
+              a(href='tracks/'+track.oid)
+                img(src='images/view.png', width="20px", height="20px")

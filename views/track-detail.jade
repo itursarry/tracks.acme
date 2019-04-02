@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  h1 Track
+  h2 Movie name: #{track.movie}
+  div
+    table.table-hover
+      thead
+        th Name
+        th M. Star At
+        th M. End At
+        th S. Start At
+        th S. End At
+        th Modify By
+        th Actual State
+        th Actons
+      tbody
+        - var scenes = track.scenes
+        each scene in scenes
+          tr
+            td=scene.name
+            td=scene.movieStartAt
+            td=scene.movieEndAt
+            td=scene.songStartAt
+            td=scene.songEndAt
+            td
+              span=scene.lastModifyedBy.surname
+              span ,&nbsp;
+              span=scene.lastModifyedBy.name
+            td=scene.state()
+            td 
+              a(href='scenes/'+scene.oid)
+                img(src='images/view.png', width="20px", height="20px")

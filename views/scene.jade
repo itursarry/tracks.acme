@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  div
+    table.table-hover
+      thead
+        tr: th Oid
+        tr: th Movie
+      tbody
+        each track in tracks
+          tr
+            td=track.oid
+            td=track.movie

@@ -4,7 +4,9 @@ class AbstractObject {
 
     constructor(name, surname, phone, email)
     {
-        this.oid = uuidv1();
+        var oid = uuidv1();
+        // para no tener problemas con las ruta, remuevo el guion
+        this.oid = oid.replace('-','');
     }
 }
 
