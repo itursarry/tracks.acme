@@ -1,32 +1,11 @@
-class TrackAcmeApp{
+// var mongoose = require('mongoose');
+// var Schema = mongoose.Schema;
 
-    constructor()
-    {
-        this.tracks = [];
-        this.persons = [];
-        this.songs = [];
-    }
+// var tracksAcmeAppSchema = new Schema({
+//     _id     : Schema.Types.ObjectId,
+//     tracks  : [{ type: Schema.Types.ObjectId, ref: 'Track' }],
+//     persons : [{ type: Schema.Types.ObjectId, ref: 'Person' }],
+//     songs   : [{ type: Schema.Types.ObjectId, ref: 'Song' }]
+//   });
 
-    addTracks(tracks){
-        this.tracks = this.tracks.concat(persons);
-        return this;
-    }
-
-    addTrack(track){
-        this.tracks.push(track);
-        return this;
-    }
-
-    addPersons(persons){
-        this.persons = this.persons.concat(persons);
-        return this;
-    }
-
-    addPersons(songs){
-        this.songs = this.songs.concat(songs);
-        return this;
-    }
-}
-
-
-module.exports = TrackAcmeApp;
+// module.exports = mongoose.model('TracksAcmeApp', tracksAcmeAppSchema);

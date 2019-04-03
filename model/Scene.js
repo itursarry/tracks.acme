@@ -1,22 +1,21 @@
-var AbstractObject = require('./AbstractObject.js');
+var mongoose = require('mongoose');
 
-class Scene extends AbstractObject {
-
-    constructor(name, movieStartAt, movieEndAt, songStartAt, songEndAt, lastModifyedBy)
-    {
-        super();
-        this.name = name;
-        this.movieStartAt = movieStartAt;
-        this.movieEndAt = movieEndAt;
-        this.songStartAt = songStartAt;
-        this.songEndAt = songEndAt;
-        this.lastModifyedBy = lastModifyedBy;
-    }
-    state(){
-        return "Approved"; // esto deberia retornarlo el objeto State.
-    }
-
-}
+//Define a schema
+var Schema = mongoose.Schema;
 
 
-module.exports = Scene;
+var sceneSchema =  new Schema({
+    name           : String,
+    movieStartAt   : String,
+    movieEndAt     : String,
+    songStartAt    : String,
+    songEndAt      : String,
+    lastModifyedBy : [{ type: Schema.Types.ObjectId, ref: 'Person' }]
+  });
+
+  sceneSchema.methods.state = function() {
+    return "Approved";
+  };
+  
+
+module.exports = mongoose.model('Scene', sceneSchema);

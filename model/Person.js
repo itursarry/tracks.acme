@@ -1,15 +1,13 @@
-var AbstractObject = require('./AbstractObject.js');
+var mongoose = require('mongoose');
 
-class Person extends AbstractObject {
+//Define a schema
+var Schema = mongoose.Schema;
 
-    constructor(name, surname, phone, email)
-    {
-        super();
-        this.name = name;
-        this.surname = surname;
-        this.phone = phone;
-        this.email = email;
-    }
-}
+var personSchema = new Schema({
+    name    : String,
+    surname : String,
+    phone   : String,
+    email   : String,
+  });
 
-module.exports = Person;
+module.exports = mongoose.model('Person', personSchema);

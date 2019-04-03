@@ -1,11 +1,13 @@
-var Person = require('./Person.js');
+var mongoose = require('mongoose');
 
-class AcmeAgent extends Person {
+//Define a schema
+var Schema = mongoose.Schema;
 
-    constructor(name, surname, phone, email)
-    {
-        super(name, surname, phone, email);
-    }
-}
+var acmeAgentSchema = new Schema({
+    name    : String,
+    surname : String,
+    phone   : String,
+    email   : String,
+  });
 
-module.exports = AcmeAgent;
+module.exports = mongoose.model('AcmeAgent', acmeAgentSchema);

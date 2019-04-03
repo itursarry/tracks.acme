@@ -1,9 +1,33 @@
 extends layout
 
 block content
-  h1 Track
-  h2 Movie name: #{track.movie}
+  h1 Track (#{track.movie})
   div
+    h2 Add scene
+    form(action='/tracks/#{track._id}/scenes',method='post')
+      label Movie name: 
+      input(type='text', name='name', required)#name
+      br
+      label Movie start at: 
+      input(type='text', name='movieStartAt', required)#movieStartAt
+      br
+      label Movie end at: 
+      input(type='text', name='movieEndAt', required)#movieEndAt
+      br
+      label Song start at: 
+      input(type='text', name='songStartAt', required)#songStartAt
+      br
+      label Song end at: 
+      input(type='text', name='songEndAt', required)#songEndAt
+      br
+      label Last modifyed by: 
+      select(id="lastModifyedBy", name="lastModifyedBy")
+        each acmeAgent in acmeAgents
+          option(value="#{acmeAgent._id}") #{acmeAgent.surname}, #{acmeAgent.name}
+      br
+      button(type='submit') Submit
+  div
+    h2 Scenes list
     table.table-hover
       thead
         th Name
@@ -29,5 +53,5 @@ block content
               span=scene.lastModifyedBy.name
             td=scene.state()
             td 
-              a(href='scenes/'+scene.oid)
+              a(href='scenes/'+scene._id)
                 img(src='images/view.png', width="20px", height="20px")

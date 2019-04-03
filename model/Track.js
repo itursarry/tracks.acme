@@ -1,14 +1,11 @@
-var AbstractObject = require('./AbstractObject.js');
+var mongoose = require('mongoose');
 
-class Track extends AbstractObject{
+//Define a schema
+var Schema = mongoose.Schema;
 
-    constructor(movie)
-    {
-        super();
-        this.movie = movie;
-        this.scenes= [];
-    }
+var trackSchema = new Schema({
+    movie  : String,
+    scenes : [{ type: Schema.Types.ObjectId, ref: 'Scene' }]
+  });
 
-}
-
-module.exports = Track;
+module.exports = mongoose.model('Track', trackSchema);

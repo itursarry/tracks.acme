@@ -1,14 +1,22 @@
 extends layout
 
 block content
-  h1= title
+  h1 Scene from #{track.movie} movie.
   div
-    table.table-hover
-      thead
-        tr: th Oid
-        tr: th Movie
-      tbody
-        each track in tracks
-          tr
-            td=track.oid
-            td=track.movie
+    label Name: 
+    span #{scene.name}
+    br
+    label Movie start at: 
+    span #{scene.movieStartAt}
+    br
+    label Movie end at: 
+    span #{scene.movieEndAt}
+    br
+    label Song start at: 
+    span #{scene.songStartAt}
+    br
+    label Song end at: 
+    span #{scene.songEndAt}
+    br
+    label Last modifyed by id: 
+    span #{scene.lastModifyedBy}
