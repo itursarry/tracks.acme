@@ -1,5 +1,22 @@
 # tracks.acme
-Aplicación de prube express.js
+- Express.js application test for NaNLabs
 
-TODO:
-- Agregar los git ignore
+## Getting Started
+
+## Prerequisites
+```
+npm
+git
+internet conexion
+```
+
+## Test de application:
+
+```
+$ git clone https://github.com/itursarry/tracks.acme.git
+$ npm install
+$ npm start
+- Abrir el navegador en localhost:3000/
+
+```
+
