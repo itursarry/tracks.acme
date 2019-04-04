@@ -9,7 +9,7 @@ Si bien el ejercicio dice 'endpoints necesarios para crear tracks y asociar una 
 
 ## Base de datos utilizada:
 ```
-Dado mi perfil orientado a Java con base de datos relaciones, en principio se intentó ir por una base de datos SQLite, ya que podría entregarla dentro del código y no era necesario instalar un servidor (mas practico y liviano para un ejercicio). Luego, investigando sobre nodejs y dado a las dificultades que tuve para mapear objetos JS en una base relacional, se decidio por mongodb que parece ser mas natural usando un mapeo con mongoose.
+Dado mi perfil orientado a Java con base de datos relacional, en principio se intentó ir por una base de datos SQLite, ya que podría entregarla dentro del código y no era necesario instalar un servidor (mas practico y liviano). Luego, investigando sobre nodejs y dado a las dificultades que tuve para mapear objetos JS en una base relacional, se decidio por mongodb que parece ser mas natural usando un mapeo con mongoose.
 Para hacer mas sencilla la instalación, se optó por publicar la base de datos en la nube (https://cloud.mongodb.com).
 ```
 
