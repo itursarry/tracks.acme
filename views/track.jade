@@ -1,16 +1,19 @@
 extends layout
 
 block content
-  h1 Tracks
-  h2 Add
+  h2.h2 Tracks
+  h3.h3 Add
   div
-    form(action='/tracks',method='post')
-      label Movie name:
-      input(type='text', name='movie', required)#movie
-      button(type='submit') Submit
-  h2 List
+    form(action='/tracks',method='post').border.rounded
+      div.form-group
+        label(for="movie") Movie name
+        input(type='text', name='movie', required, placeholder="ex. Back to the future")#movie
+      br
+      button(type='submit').btn.btn-primary Submit
+  br
+  h3.h3 List
   div
-    table.table-hover
+    table.table
       thead
         th Movie
         th Actions
@@ -18,6 +21,7 @@ block content
         each track in tracks
           tr
             td=track.movie
-            td 
+            td
               a(href='tracks/'+track._id)
-                img(src='images/view.png', width="20px", height="20px")
+                i.fa.fa-search-plus
+                

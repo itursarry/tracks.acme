@@ -16,7 +16,9 @@
     "mongodb": "^3.2.2",
     "mongoose": "^5.4.21",
     "morgan": "1.9.1",
+    "pepper": "^0.1.0",
     "popper": "^1.0.1",
+    "popper.js": "^1.14.7",
     "static-favicon": "~1.0.0",
     "uuid": "^3.3.2"
   }

@@ -1,34 +1,35 @@
 extends layout
 
 block content
-  h1 Track (#{track.movie})
+  h2.h2 Track: #{track.movie}
   div
-    h2 Add scene
-    form(action='/tracks/#{track._id}/scenes',method='post')
-      label Movie name: 
-      input(type='text', name='name', required)#name
-      br
-      label Movie start at: 
-      input(type='text', name='movieStartAt', required)#movieStartAt
-      br
-      label Movie end at: 
-      input(type='text', name='movieEndAt', required)#movieEndAt
-      br
-      label Song start at: 
-      input(type='text', name='songStartAt', required)#songStartAt
-      br
-      label Song end at: 
-      input(type='text', name='songEndAt', required)#songEndAt
-      br
-      label Last modifyed by: 
-      select(id="lastModifyedBy", name="lastModifyedBy")
-        each acmeAgent in acmeAgents
-          option(value="#{acmeAgent._id}") #{acmeAgent.surname}, #{acmeAgent.name}
-      br
-      button(type='submit') Submit
+    h3.h3 Add scene
+    form(action='/tracks/#{track._id}/scenes',method='post').border.rounded
+      div.form-group
+        label Movie name: 
+        input(type='text', name='name', required)#name
+      div.form-group
+        label Movie start at: 
+        input(type='text', name='movieStartAt', required)#movieStartAt
+      div.form-group
+        label Movie end at: 
+        input(type='text', name='movieEndAt', required)#movieEndAt
+      div.form-group
+        label Song start at: 
+        input(type='text', name='songStartAt', required)#songStartAt
+      div.form-group
+        label Song end at: 
+        input(type='text', name='songEndAt', required)#songEndAt
+      div.form-group
+        label Last modifyed by: 
+        select(id="lastModifyedBy", name="lastModifyedBy")
+          each acmeAgent in acmeAgents
+            option(value="#{acmeAgent._id}") #{acmeAgent.surname}, #{acmeAgent.name}
+      button(type='submit').btn.btn-primary Submit
+  br
   div
-    h2 Scenes list
-    table.table-hover
+    h3.h3 Scenes list
+    table.table
       thead
         th Name
         th M. Star At
@@ -54,4 +55,4 @@ block content
             td=scene.state()
             td 
               a(href='scenes/'+scene._id)
-                img(src='images/view.png', width="20px", height="20px")
+                i.fa.fa-search-plus
