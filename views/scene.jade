@@ -3,20 +3,21 @@ extends layout
 block content
   h2.h2 Scene from #{track.movie} movie.
   div
-    label Name: 
-    span #{scene.name}
-    br
-    label Movie start at: 
-    span #{scene.movieStartAt}
-    br
-    label Movie end at: 
-    span #{scene.movieEndAt}
-    br
-    label Song start at: 
-    span #{scene.songStartAt}
-    br
-    label Song end at: 
-    span #{scene.songEndAt}
-    br
-    label Last modifyed by id: 
-    span #{scene.lastModifyedBy}
+    div.form-group
+      label Name: 
+      span #{scene.name}
+    div.form-group
+      label Movie start at: 
+      span #{scene.movieStartAt}
+    div.form-group
+      label Movie end at: 
+      span #{scene.movieEndAt}
+    div.form-group
+      label Song start at: 
+      span #{scene.songStartAt}
+    div.form-group
+      label Song end at: 
+      span #{scene.songEndAt}
+    div.form-group
+      label Last modifyed by id: 
+      span #{scene.lastModifyedBy}

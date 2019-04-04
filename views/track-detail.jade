@@ -6,22 +6,22 @@ block content
     h3.h3 Add scene
     form(action='/tracks/#{track._id}/scenes',method='post').border.rounded
       div.form-group
-        label Movie name: 
-        input(type='text', name='name', required)#name
+        label Scene name 
+        input(type='text', name='name', required, placeholder="ex. First time travel")#name
       div.form-group
-        label Movie start at: 
-        input(type='text', name='movieStartAt', required)#movieStartAt
+        label Scene start at
+        input(type='text', name='movieStartAt', required, placeholder="ex. 00:23:06")#movieStartAt
       div.form-group
-        label Movie end at: 
-        input(type='text', name='movieEndAt', required)#movieEndAt
+        label Scene end at
+        input(type='text', name='movieEndAt', required, placeholder="ex. 00:32:16")#movieEndAt
       div.form-group
-        label Song start at: 
-        input(type='text', name='songStartAt', required)#songStartAt
+        label Song start at
+        input(type='text', name='songStartAt', required, placeholder="ex. 00:01:20")#songStartAt
       div.form-group
-        label Song end at: 
-        input(type='text', name='songEndAt', required)#songEndAt
+        label Song end at
+        input(type='text', name='songEndAt', required, placeholder="ex. 00:11:54")#songEndAt
       div.form-group
-        label Last modifyed by: 
+        label Last modifyed by
         select(id="lastModifyedBy", name="lastModifyedBy")
           each acmeAgent in acmeAgents
             option(value="#{acmeAgent._id}") #{acmeAgent.surname}, #{acmeAgent.name}
