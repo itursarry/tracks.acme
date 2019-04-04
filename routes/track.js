@@ -55,7 +55,6 @@ router.post('/:id/scenes', function (req, res) {
 
 router.get('/', function (req, res) {
   Track.find({}, function (err, tracks) {
-    console.log(tracks);
     res.render('track', { tracks: tracks });
   });
 });
@@ -82,8 +81,6 @@ router.get('/:trackId/scenes/:id', function (req, res) {
           console.log("Scene with id = " + id + " not found.");
           res.render('error', { status: 404, url: req.url, error: "Scene with id = " + id + " not found." });
         } else {
-          console.log(track);
-          console.log(scene);
           res.render('scene', { track: track, scene: scene });
         }
       }
