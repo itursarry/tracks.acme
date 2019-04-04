@@ -44,7 +44,7 @@ router.post('/:id/scenes', function (req, res) {
             track.scenes.push(scene);
             track.save(function (err) { console.log(err); });
 
-            res.redirect('/tracks/'+id);
+            res.redirect(301, '/tracks/'+id);
 
           } else {
             res.render('error', { status: 404, url: req.url, error: "Track with id = " + id + "or Acme agent with id="+req.body.lastModifyedBy+" not found." });
@@ -61,8 +61,7 @@ router.get('/', function (req, res) {
 });
 
 router.post('/', function (req, res) {
-  var movie = req.body.movie;
-  var track = new Track({ movie: movie });
+  var track = new Track({ movie: req.body.movie });
   track.save(function (err) { console.log(err); });
   res.redirect('/tracks/')
 });

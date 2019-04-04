@@ -5,10 +5,10 @@ block content
   h3.h3 Add
   div
     form(action='/tracks/',method='post').border.rounded
-      div.form-group
-        label(for="movie") Movie name
-        input(type='text', name='movie', required, placeholder="ex. Back to the future")#movie
-      br
+      div.form-group.row
+        label.col-sm-2.col-form-label Movie name
+        div.col-sm-10
+          input(type='text', name='movie', required, placeholder="ex. Back to the future").form-control#movie
       button(type='submit').btn.btn-primary Submit
   br
   h3.h3 List

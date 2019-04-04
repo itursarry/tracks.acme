@@ -4,7 +4,6 @@ var AcmeAgent = require('../model/AcmeAgent.js');
 
 router.get('/', function (req, res) {   
   AcmeAgent.find({}, function (err, acmeAgents) {
-    console.log(acmeAgents);
     res.render('acme-agent', { acmeAgents: acmeAgents });
   });
 });
@@ -16,11 +15,8 @@ router.post('/', function (req, res) {
       surname: req.body.surname, 
       phone: req.body.phone, 
       email: req.body.email });
-
-  console.log(acmeAgent);
-
   acmeAgent.save(function (err) { console.log(err); });
-  res.redirect('/acmeagents/')
+  res.redirect(301, '/acmeagents/')
 });
 
 module.exports = router;

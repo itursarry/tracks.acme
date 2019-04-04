@@ -5,18 +5,22 @@ block content
   div
     h3.h3 Add agent
     form(action='/acmeagents/',method='post').border.rounded
-      div.form-group
-        label Name 
-        input(type='text', name='name', required, placeholder="ex. Marty")#name
-      div.form-group
-        label Surname
-        input(type='text', name='surname', required, placeholder="ex. McFlay")#Surname
-      div.form-group
-        label Phone
-        input(type='text', name='phone', required, placeholder="ex. 0221-15654584")#phone
-      div.form-group
-        label E-Mail
-        input(type='text', name='email', required, placeholder="marty.cmflay@gmail.com")#email
+      div.form-group.row
+        label.col-sm-2.col-form-label Name
+        div.col-sm-10
+          input(type='text', name='name', required, placeholder="ex. Marty").form-control#name
+      div.form-group.row
+        label.col-sm-2.col-form-label Surname
+        div.col-sm-10
+          input(type='text', name='surname', required, placeholder="ex. McFlay").form-control#Surname
+      div.form-group.row
+        label.col-sm-2.col-form-label Phone
+        div.col-sm-10
+          input(type='text', name='phone', required, placeholder="ex. 0221-15654584").form-control#phone
+      div.form-group.row
+        label.col-sm-2.col-form-label E-Mail
+        div.col-sm-10
+          input(type='text', name='email', required, placeholder="marty.cmflay@gmail.com").form-control#email
       button(type='submit').btn.btn-primary Submit
   br
   div
