@@ -11,8 +11,6 @@ router.get('/:id', function (req, res) {
     function (err, track) {
       AcmeAgent.find({}).exec(
         function (err, acmeAgents) {
-          console.log("Scenes");
-          console.log(track.scenes);
           if (!track) {
             console.log("Track with oid = " + id + " not found.");
             res.render('error', { status: 404, url: req.url, error: "Track with id = " + id + " not found." });
@@ -25,20 +23,20 @@ router.get('/:id', function (req, res) {
 
 router.post('/:id/scenes', function (req, res) {
   var id = req.params.id;
-  var rb = req.body
+
   Track.findById(id).populate('scenes').
     exec(function (err, track) {
 
-      AcmeAgent.findById({ _id: rb.lastModifyedBy }).
+      AcmeAgent.findById({ _id: req.body.lastModifyedBy }).
         exec(function (err, acmeAgent) {
 
           if (track && acmeAgent) {
             var scene = new Scene({
-              name: rb.name,
-              movieStartAt: rb.movieStartAt,
-              movieEndAt: rb.movieEndAt,
-              songStartAt: rb.songStartAt,
-              songEndAt: rb.songEndAt,
+              name: req.body.name,
+              movieStartAt: req.body.movieStartAt,
+              movieEndAt: req.body.movieEndAt,
+              songStartAt: req.body.songStartAt,
+              songEndAt: req.body.songEndAt,
               lastModifyedBy: acmeAgent
             });
 
@@ -49,7 +47,7 @@ router.post('/:id/scenes', function (req, res) {
             res.redirect('/tracks/'+id);
 
           } else {
-            res.render('error', { status: 404, url: req.url, error: "Track with id = " + id + "or Acme agent with id="+rb.lastModifyedBy+" not found." });
+            res.render('error', { status: 404, url: req.url, error: "Track with id = " + id + "or Acme agent with id="+req.body.lastModifyedBy+" not found." });
           }
         });
     });
@@ -65,14 +63,8 @@ router.get('/', function (req, res) {
 router.post('/', function (req, res) {
   var movie = req.body.movie;
   var track = new Track({ movie: movie });
-
-  console.log(track);
-
-  track.save(function (err) {
-    console.log(err);
-    // if (err) return handleError(err);
-  });
-  res.redirect('/tracks')
+  track.save(function (err) { console.log(err); });
+  res.redirect('/tracks/')
 });
 
 

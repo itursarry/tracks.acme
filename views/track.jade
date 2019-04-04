@@ -4,7 +4,7 @@ block content
   h2.h2 Tracks
   h3.h3 Add
   div
-    form(action='/tracks',method='post').border.rounded
+    form(action='/tracks/',method='post').border.rounded
       div.form-group
         label(for="movie") Movie name
         input(type='text', name='movie', required, placeholder="ex. Back to the future")#movie
@@ -22,6 +22,7 @@ block content
           tr
             td=track.movie
             td
-              a(href='tracks/'+track._id)
+              a(href='/tracks/'+track._id)
                 i.fa.fa-search-plus
-                
+              i.fa.fa-edit
+              i.fa.fa-trash

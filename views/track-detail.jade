@@ -4,27 +4,33 @@ block content
   h2.h2 Track: #{track.movie}
   div
     h3.h3 Add scene
-    form(action='/tracks/#{track._id}/scenes',method='post').border.rounded
-      div.form-group
-        label Scene name 
-        input(type='text', name='name', required, placeholder="ex. First time travel")#name
-      div.form-group
-        label Scene start at
-        input(type='text', name='movieStartAt', required, placeholder="ex. 00:23:06")#movieStartAt
-      div.form-group
-        label Scene end at
-        input(type='text', name='movieEndAt', required, placeholder="ex. 00:32:16")#movieEndAt
-      div.form-group
-        label Song start at
-        input(type='text', name='songStartAt', required, placeholder="ex. 00:01:20")#songStartAt
-      div.form-group
-        label Song end at
-        input(type='text', name='songEndAt', required, placeholder="ex. 00:11:54")#songEndAt
-      div.form-group
-        label Last modifyed by
-        select(id="lastModifyedBy", name="lastModifyedBy")
-          each acmeAgent in acmeAgents
-            option(value="#{acmeAgent._id}") #{acmeAgent.surname}, #{acmeAgent.name}
+    form(action='/tracks/#{track._id}/scenes/',method='post').border.rounded
+      div.form-group.row
+        label.col-sm-2.col-form-label Scene name
+        div.col-sm-10
+          input(type='text', name='name', required, placeholder="ex. First time travel").form-control#name
+      div.form-group.row
+        label.col-sm-2.col-form-label Scene start at
+        div.col-sm-10
+          input(type='text', name='movieStartAt', required, placeholder="ex. 00:23:06").form-control#movieStartAt
+      div.form-group.row
+        label.col-sm-2.col-form-label Scene end at
+        div.col-sm-10
+          input(type='text', name='movieEndAt', required, placeholder="ex. 00:32:16").form-control#movieEndAt
+      div.form-group.row
+        label.col-sm-2.col-form-label Song start at
+        div.col-sm-10
+          input(type='text', name='songStartAt', required, placeholder="ex. 00:01:20").form-control#songStartAt
+      div.form-group.row
+        label.col-sm-2.col-form-label Song end at
+        div.col-sm-10
+          input(type='text', name='songEndAt', required, placeholder="ex. 00:11:54").form-control#songEndAt
+      div.form-group.row
+        label.col-sm-2.col-form-label Last modifyed by
+        div.col-sm-10
+          select(id="lastModifyedBy", name="lastModifyedBy").form-control
+            each acmeAgent in acmeAgents
+              option(value="#{acmeAgent._id}") #{acmeAgent.surname}, #{acmeAgent.name}
       button(type='submit').btn.btn-primary Submit
   br
   div
@@ -54,5 +60,7 @@ block content
               span=scene.lastModifyedBy.name
             td=scene.state()
             td 
-              a(href='scenes/'+scene._id)
+              a(href='/tracks/#{track._id}/scenes/#{scene._id}/')
                 i.fa.fa-search-plus
+              i.fa.fa-edit
+              i.fa.fa-trash

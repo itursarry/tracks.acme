@@ -1,23 +1,28 @@
 extends layout
 
 block content
-  h2.h2 Scene from #{track.movie} movie.
-  div
-    div.form-group
-      label Name: 
-      span #{scene.name}
-    div.form-group
-      label Movie start at: 
-      span #{scene.movieStartAt}
-    div.form-group
-      label Movie end at: 
-      span #{scene.movieEndAt}
-    div.form-group
-      label Song start at: 
-      span #{scene.songStartAt}
-    div.form-group
-      label Song end at: 
-      span #{scene.songEndAt}
-    div.form-group
-      label Last modifyed by id: 
-      span #{scene.lastModifyedBy}
+  h3.h3 Scene from #{track.movie} movie.
+  div.form-group.row
+    label.col-sm-2.col-form-label Name
+    div.col-sm-10
+      input(type=text, readonly, value=scene.name).form-control-plaintext
+  div.form-group.row
+    label.col-sm-2.col-form-label Movie start at
+    div.col-sm-10
+      input(type=text, readonly, value=scene.movieStartAt).form-control-plaintext 
+  div.form-group.row
+    label.col-sm-2.col-form-label Movie end at
+    div.col-sm-10
+      input(type=text, readonly, value=scene.movieEndAt).form-control-plaintext 
+  div.form-group.row
+    label.col-sm-2.col-form-label Song start at
+    div.col-sm-10
+      input(type=text, readonly, value=scene.songStartAt).form-control-plaintext 
+  div.form-group.row
+    label.col-sm-2.col-form-label Song end at
+    div.col-sm-10
+      input(type=text, readonly, value=scene.songEndAt).form-control-plaintext 
+  div.form-group.row
+    label.col-sm-2.col-form-label Last modifyed by id
+    div.col-sm-10
+      input(type=text, readonly, value=scene.lastModifyedBy).form-control-plaintext 

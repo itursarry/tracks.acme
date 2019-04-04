@@ -1,0 +1,41 @@
+extends layout
+
+block content
+  h2.h2 Acme Agents
+  div
+    h3.h3 Add agent
+    form(action='/acmeagents/',method='post').border.rounded
+      div.form-group
+        label Name 
+        input(type='text', name='name', required, placeholder="ex. Marty")#name
+      div.form-group
+        label Surname
+        input(type='text', name='surname', required, placeholder="ex. McFlay")#Surname
+      div.form-group
+        label Phone
+        input(type='text', name='phone', required, placeholder="ex. 0221-15654584")#phone
+      div.form-group
+        label E-Mail
+        input(type='text', name='email', required, placeholder="marty.cmflay@gmail.com")#email
+      button(type='submit').btn.btn-primary Submit
+  br
+  div
+    h3.h3 Agents List
+    table.table
+      thead
+        th Name
+        th Surname
+        th Phone
+        th E-MAil
+        th Actions
+      tbody
+        each acmeAgent in acmeAgents
+          tr
+            td=acmeAgent.name
+            td=acmeAgent.surname
+            td=acmeAgent.phone
+            td=acmeAgent.email
+            td
+              i.fa.fa-search-plus
+              i.fa.fa-edit
+              i.fa.fa-trash
