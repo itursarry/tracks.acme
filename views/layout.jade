@@ -9,14 +9,14 @@ html
     script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js", integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q", crossorigin="anonymous")
   body
     nav.navbar.navbar-expand-lg.navbar-light.bg-light
-      ul.navbar-nav.mr-auto
-        li.nav-item
-          a(href='/').navbar-link.active Home
-        li.nav-item
-          a(href='tracks').navbar-link Tracks
-        li.nav-item
-          a(href='songs').navbar-link Songs
-        li.nav-item
-          a(href='acmeagents').navbar-link Acme Agents
+        a(href='/', data-toggle="tooltip", title="Home").navbar-brand
+          i.fa.fa-home.fa-2x
+        a(href='tracks', data-toggle="tooltip", title="Tracks").navbar-brand
+          i.fa.fa-list-ol.fa-2x
+        a(href='songs', data-toggle="tooltip", title="Songs").navbar-brand
+          i.fa.fa-music.fa-2x
+        a(href='acmeagents', data-toggle="tooltip", title="Agents").navbar-brand
+          i.fa.fa-users.fa-2x
+
     br
     block content
