@@ -15,7 +15,7 @@ Para hacer mas sencilla la instalación, se optó por publicar la base de datos 
 
 ## Dar visibilidad inmediata
 ```
-Dos opciones de acuerdo a si el usuario esta o no logeado en la aplicación:
+Dos opciones de acuerdo a si el usuario esta o no logueado en la aplicación:
 1 - Usar socket para alertar a un usuario en el navegador en el momento que este usando la aplicación.
 2 - Enviar un mail, mensaje de texto o whatsapp.
 ```
