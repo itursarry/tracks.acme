@@ -20,7 +20,7 @@ Dos opciones de acuerdo a si el usuario esta o no logeado en la aplicación:
 2 - Enviar un mail, mensaje de texto o whatsapp.
 ```
 
-## Prerequisites
+## Prerequisitos
 ```
 npm
 git
